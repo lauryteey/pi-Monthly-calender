@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='showEvents.css')}}">
+    <title>Mine eventer</title>
+</head>
+
+<body>
+    <h1>Dine eventer</h1>
+    <div class="event-container">
+        <div id="event-list">
+            <!-- Eventer skal vises her  -->
+        </div>
+        <button id="add-event-btn">legg til en ny event</button>
+    </div>
+
+    <script src="{{ url_for('static', filename='showEvents.js') }}"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f9f9f9;
+}
+
+  /* Styling for the main container */
+  .event-container {
+    display: flex;
+    flex-direction: column; /* Arrange items in a column */
+    align-items: center; /* Center-align the boxes horizontally */
+    gap: 20px; /* Add space between event boxes */
+    padding: 20px;
+}
+
+/* Styling for individual event boxes */
+.event-box {
+    border: 2px solid #007BFF; /* Add a blue border */
+    border-radius: 8px; /* Rounded corners */
+    padding: 15px; /* Space inside the box */
+    width: 80%; /* Set the width of the box */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+    background-color: #f9f9f9; /* Light background color */
+    font-family: Arial, sans-serif; /* Font style */
+}
+
+/* Styling for the "Add Event" button */
+#add-event-btn {
+    background-color: #007BFF; /* Blue background */
+    color: white; /* White text */
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+#add-event-btn:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+h1 {
+    text-align: center; /* Center-align the header */
+}
+
+
+button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}

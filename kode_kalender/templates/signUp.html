@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='SignUp.css')}}">
+    <title>Sign up - calender</title>
+</head>
+
+<body>
+
+    <div class="signup-container">
+        <h2>Sign Up</h2>
+        <form id="signup-form">
+            <label for="first-name">Fornavn:</label>
+            <input type="text" id="first-name" name="first-name" placeholder="Skriv ditt fornavn" required>
+
+            <label for="last-name">Etternavn:</label>
+            <input type="text" id="last-name" name="last-name" placeholder="Skriv ditt etternavn" required>
+
+            <label for="email">E-post:</label>
+            <input type="email" id="email" name="email" placeholder="Skriv din e-post" required>
+
+            <label for="password">Passord:</label>
+            <input type="password" id="password" name="password" placeholder="Opprett et passord" required>
+
+            <button type="submit">Opprett bruker</button>
+        </form>
+    </div>
+
+    <script src="{{url_for('static', filename='SingUp.js')}}"></script>
+</body>
+
+</html>

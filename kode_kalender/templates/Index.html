@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Calendar</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+</head>
+
+<body>
+    <header>
+        <!-- knappen for å gå til show events -->
+        <a href="{{url_for('show_events')}}" class="show-events-btn">Vise Eventer</a>
+    </header>
+
+    <!-- Kalenderen container -->
+    <div class="calendar-container">
+        <header class="calendar-header">
+            <p class="calendar-current-date"></p>
+            <div class="calendar-navigation">
+                <span id="calendar-prev" class="material-symbols-rounded">
+                    chevron_left
+                </span>
+                <span id="calendar-next" class="material-symbols-rounded">
+                    chevron_right
+                </span>
+            </div>
+        </header>
+
+        <div class="calendar-body">
+            <ul class="calendar-weekdays">
+                <li>Sun</li>
+                <li>Mon</li>
+                <li>Tue</li>
+                <li>Wed</li>
+                <li>Thu</li>
+                <li>Fri</li>
+                <li>Sat</li>
+            </ul>
+            <ul class="calendar-dates"></ul>
+        </div>
+    </div>
+
+
+    <!-- POP-UP event til kalenderen -->
+    <div id="event-modal" class="modal hidden">
+        <div class="modal-content">
+            <span id="close-modal" class="close-button" onclick="hideEventPopup()">&times;</span>
+            <h2>Ny event</h2>
+            <form id="event-form" method="POST">
+                <label for="event-name">Navnet til eventet</label>
+                <input type="text" id="event-name" name="event-name" required>
+
+                <label for="event-date">Dato og timen</label>
+                <input type="datetime-local" id="event-date" name="event-date" required>
+
+                <label for="notification">Varsling:</label>
+                <select id="notification" name="notification">
+                    <option value="1-hour">1 time før</option>
+                    <option value="10-minutes">10 minutter før</option>
+                </select>
+
+                <label for="event-place">Sted</label>
+                <input type="text" id="event-place" name="event-place" required>
+
+                <br><br>
+
+                <button type="submit" class="modal-submit">Lagre eventet</button>
+
+
+            </form>
+            
+        </div>
+    </div>
+
+    <script src="{{url_for('static', filename='calender.js')}}"></script>
+
+</body>
+
+</html>
