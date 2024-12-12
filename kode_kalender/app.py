@@ -2,9 +2,11 @@
 from flask import Flask, jsonify, render_template, request, session
 from datetime import datetime, timedelta
 import mysql.connector
+from werkzeug.security import generate_password_hash, check_password_hash
 
 app = Flask(__name__, template_folder="./templates")
 app.secret_key = 'Hei, secret key'  # En tilfeldig nøkkel som brukes til å kryptere informasjonskapslene dine. Nødvendig for session management.
+
 
 # Kobling til global database
 conn = mysql.connector.connect(
@@ -17,7 +19,7 @@ conn = mysql.connector.connect(
 # Global cursor for å utføre spørringer i databasen
 cursor = conn.cursor(dictionary=True)  # Returnerer rader som dictionaries i stedet for tuples.
 
-# Login route
+#Log in route
 @app.route('/login', methods=['POST'])
 def login():
     try:
@@ -37,8 +39,8 @@ def login():
         user = cursor.fetchone()  # Henter første rad fra resultatet.
 
         if user:
-            # Sjekker om passordet matcher.
-            if user['passord'] == passord:
+            # Sjekker om passordet matcher ved å bruke check_password_hash.
+            if check_password_hash(user['passord'], passord):
                 session['brukerID'] = user['brukerID']  # Lagre brukerID i session.
                 return jsonify({"message": "Klarte å logge inn YAY!", "redirect": "/calenderen"}), 200
             else:
@@ -54,7 +56,6 @@ def login():
         # Logger andre uventede feil.
         print(f"Uforventet feil under login: {e}")
         return jsonify({"error": "Det skjedde en uventet feil"}), 500
-    
 
 # Add event route
 @app.route('/add_event', methods=['POST'])
@@ -131,7 +132,10 @@ def create_user():
         for field in required_fields:
             if field not in data or not data[field].strip():
                 return jsonify({"error": f"Feltet '{field}' er påkrevd."}), 400
-
+            
+        # Hash passordet
+        hashed_password = generate_password_hash(data['passord'])
+        
         # SQL-spørring for å legge til en ny bruker
         query = """
             INSERT INTO bruker (e_post, passord, fornavn, etternavn)
@@ -139,7 +143,7 @@ def create_user():
         """
         values = (
             data['e_post'],      # E-post
-            data['passord'],     # Passord
+            hashed_password,     # Passord
             data['fornavn'],     # Fornavn
             data['etternavn']    # Etternavn
         )
@@ -147,6 +151,8 @@ def create_user():
         # Utfør spørringen
         cursor.execute(query, values)
         conn.commit()  # Lagre endringene i databasen
+        
+        
 
         # Returner suksessmelding
         return jsonify({"message": "Brukeren ble opprettet!"}), 201
