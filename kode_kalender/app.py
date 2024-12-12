@@ -3,12 +3,12 @@ from flask import Flask, jsonify, render_template, request, session
 from datetime import datetime, timedelta
 import mysql.connector
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder="./templates")
 app.secret_key = 'Hei, secret key'  # En tilfeldig nøkkel som brukes til å kryptere informasjonskapslene dine. Nødvendig for session management.
 
 # Kobling til global database
 conn = mysql.connector.connect(
-    host="88.95.146.186",         
+    host="localhost",         
     user="calender_user",     
     password="123",           
     database="calender"       
@@ -43,6 +43,7 @@ def login():
                 return jsonify({"message": "Klarte å logge inn YAY!", "redirect": "/calenderen"}), 200
             else:
                 return jsonify({"error": "Feil passord."}), 401
+
         else:
             return jsonify({"error": "Bruker ble ikke funnet."}), 404
     except mysql.connector.Error as e:
@@ -169,7 +170,7 @@ def create_user():
 
 @app.route('/sign_up')
 def sign_up():
-    return render_template('SignUp.html')  # Ensure this is your sign-up HTML file
+    return render_template('signUp.html')  # Ensure this is your sign-up HTML file
 
 
 
@@ -196,7 +197,7 @@ def calenderen():
     if 'brukerID' not in session:
         return jsonify({'error': 'Bruker er ikke logget inn'}), 401
     # Viser kalendersiden hvis brukeren er logget inn.
-    return render_template('index.html')
+    return render_template('Index.html')
 
 
 # Starter Flask-applikasjonen
