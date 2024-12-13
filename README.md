@@ -5,7 +5,7 @@ Denne brukerveiledningen gjelder for **beta-versjonen** av kalenderapplikasjonen
 
 - Opprette brukerkontoer.
 - Opprette hendelser med detaljer som dato, tid, beskrivelse og sted.
-- Vise en oversikt over alle eventer som brukeren har opprettet.
+- Vise en oversikt over alle hendelser som brukeren har opprettet.
 
 --- 
 Hensikten med applikasjonen er å gi brukeren en enkel måte å organisere sitt daglige liv og arbeidsoppgaver. Alt lagres trygt i en MariaDB/MySQL-database, slik at informasjonen til brukeren er tilgjengelig når brukeren trenger det. Enten det brukes til personlige oppgaver eller profesjonelle arrangementer, er ideen med denne kalenderapplikasjonen laget for å være fleksibel og intuitiv.
@@ -31,8 +31,6 @@ For å bruke applikasjonen, må du ha følgende:
 1. **Opprett et virtuelt miljø:**
    Gå til prosjektmappen og kjør kommandoen:
 
-   - På Windows/macOS/Linux: 
-
      ```bash
      python -m venv myenv
      ```
@@ -51,10 +49,10 @@ For å bruke applikasjonen, må du ha følgende:
 
 ---
 
-### **Installer nødvendige avhengigheter**
+### **Installer nødvendige biblioteker**
 
 - Sørg for at du har en fil kalt `requirements.txt` i prosjektmappen.
-- Installer avhengigheter med kommandoen:
+- Installer biblioteker med kommandoen:
 
    ```bash
    pip install -r requirements.txt
@@ -78,7 +76,7 @@ pip install Flask
 ## **Hvordan bruke applikasjonen**
 
 ### **1. Logge inn eller registrere deg inn**
-For å teste applikasjonen, kan du oprette din eget bruker og deretter logge inn.
+For å teste applikasjonen, kan du oprette din egen bruker og deretter logge inn.
 
 - Gå til innloggingssiden og legg til nødvendige informajson, for eksempel: 
 - **E-post:** `test_user@gmail.com`
@@ -110,7 +108,7 @@ For å teste applikasjonen, kan du oprette din eget bruker og deretter logge inn
 ## **Funksjoner forklart**
 
 ### **a. Logg inn og registrer deg**
-- lar brukeren lage sitt eget bruker 
+- lar brukeren lage sin eget bruker 
 - Bruker e-post og passord for å bekrefte hvem brukeren er og gir deg tilgang til calenderen.
 - Hvis brukeren finnes i databasen og passordet er riktig, får du tilgang til kalenderen.
 
