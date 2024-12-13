@@ -117,6 +117,50 @@ def get_events():
         print(f"Error fetching events: {e}")
         return jsonify({'error': 'Feil i databasen'}), 500
 
+# Rute for å opprette en ny bruker
+@app.route('/create_user', methods=['POST'])
+def create_user():
+    try:
+        # Henter data som sendes i forespørselen (JSON-format)
+        data = request.get_json()
+
+        # Sjekker om alle nødvendige felt er med i forespørselen
+        if not all(key in data for key in ('e_post', 'passord', 'fornavn', 'etternavn')):
+            return jsonify({"error": "E-post, passord, fornavn og etternavn er påkrevd"}), 400
+
+        e_post = data['e_post']  # Henter e-post fra forespørselen
+        passord = data['passord']  # Henter passord fra forespørselen
+        fornavn = data['fornavn']  # Henter fornavn fra forespørselen
+        etternavn = data['etternavn']  # Henter etternavn fra forespørselen
+
+        # Sjekker om e-posten allerede finnes i databasen
+        query = "SELECT e_post FROM bruker WHERE e_post = %s"
+        cursor.execute(query, (e_post,))
+        if cursor.fetchone():
+            return jsonify({"error": "E-posten er allerede registrert"}), 409
+
+        # Genererer et hashed passord for sikker lagring
+        hashed_passord = generate_password_hash(passord)
+
+        # SQL-spørring for å legge til ny bruker
+        query = """
+            INSERT INTO bruker (e_post, passord, fornavn, etternavn)
+            VALUES (%s, %s, %s, %s)
+        """
+        values = (e_post, hashed_passord, fornavn, etternavn)
+        cursor.execute(query, values)
+        conn.commit()  # Lagrer endringene i databasen
+
+        return jsonify({"message": "Brukeren ble opprettet!"}), 201
+    except mysql.connector.Error as e:
+        # Håndterer databasefeil
+        print(f"Databasefeil under oppretting av bruker: {e}")
+        return jsonify({"error": "En feil oppsto med databasen"}), 500
+    except Exception as e:
+        # Håndterer andre uventede feil
+        print(f"Uventet feil under oppretting av bruker: {e}")
+        return jsonify({"error": "Det oppsto en uventet feil"}), 500
+
 
 @app.route('/sign_up')
 def sign_up():
