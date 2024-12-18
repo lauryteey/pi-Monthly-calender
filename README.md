@@ -8,14 +8,14 @@ Denne brukerveiledningen gjelder for **beta-versjonen** av kalenderapplikasjonen
 - Vise en oversikt over alle hendelser som brukeren har opprettet.
 
 --- 
-Hensikten med applikasjonen er å gi brukeren en enkel måte å organisere sitt daglige liv og arbeidsoppgaver. Alt lagres trygt i en MariaDB/MySQL-database, slik at informasjonen til brukeren er tilgjengelig når brukeren trenger det. Enten det brukes til personlige oppgaver eller profesjonelle arrangementer, er ideen med denne kalenderapplikasjonen laget for å være fleksibel og intuitiv.
+Hensikten med applikasjonen er å gi brukeren som for eksempel programmerere som har konstante møter, en enkel måte å organisere sitt daglige liv og arbeidsoppgaver. Alt lagres trygt i en MariaDB-database, slik at informasjonen til brukeren er tilgjengelig når brukeren trenger det. Enten det brukes til personlige oppgaver eller profesjonelle arrangementer, er ideen med denne kalenderapplikasjonen laget for å være fleksibel og enkelt og bruke.
 
 ---
 
 ## **Hva trenger du?**
 
 For å bruke applikasjonen, må du ha følgende:
-- Tilgang til en MariaDB/MySQL-database med riktig oppsett.
+- Tilgang til en MariaDB-database med riktig oppsett.
 
 ### **Installasjon**
 1. **Last ned applikasjonen:**
@@ -69,6 +69,7 @@ pip install Flask
      ```bash
      python app.py
      ```
+     
    - Åpne nettleseren og gå til ip adressen du får fra flask med ````CTRL + click````
 
 
