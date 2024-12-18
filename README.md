@@ -14,8 +14,15 @@ Hensikten med applikasjonen er å gi brukeren som for eksempel programmerere som
 
 ## **Hva trenger du?**
 
-For å bruke applikasjonen, må du ha følgende:
-- Tilgang til en MariaDB-database med riktig oppsett.
+For å bruke applikasjonen må du ha følgende på plass:
+
+- Tilgang til en MariaDB-database med riktig oppsett. Hvis du er usikker på hvordan dette gjøres, kan du følge disse veiledningene for å sette opp MariaDB på Ubuntu 20.04 eller 22.04.
+  
+📍  [How To Install MariaDB on Ubuntu 20.04](https://www.digitalocean.com/community/tutorials/how-to-install-mariadb-on-ubuntu-20-04)
+📍 [How To Install MariaDB on Ubuntu 22.04](https://www.digitalocean.com/community/tutorials/how-to-install-mariadb-on-ubuntu-22-04)
+
+  
+
 
 ### **Installasjon**
 1. **Last ned applikasjonen:**
