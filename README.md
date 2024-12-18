@@ -161,18 +161,22 @@ For å teste applikasjonen, kan du oprette din egen bruker og deretter logge inn
 
 ## 🔍 **Vanlige problemer og løsninger**
 ---
+#Dette problemet gjelder bare for de som ville teste aplikkasjonen.
+
 ### Problem: Får ikke logget inn.
 - **Løsning**: Sørg for at e-postadressen og passordet er riktig. Hvis problemet vedvarer, kan du prøve å lage en ny bruker. Hvis du har en konto med hendelser kan du ta kontakt med meg. 
 --- 
-#Hvis 
+
+#Hvis du ser både på aplikkasjonen og koden, det er mulig at du finner en av disse problemene:
+
 ### Problem: Hendelser lagres ikke.
 - **Løsning**: Sjekk at databasen er riktig konfigurert og aktiv.
 
 ### Problem: Feil under tilkobling til databasen.
-- **Løsning**: Forsikre deg om at MariaDB/MySQL-serveren kjører, og at brukerrettighetene er satt opp korrekt.
+- **Løsning**: Forsikre deg om at MariaDBserveren kjører, og at brukerrettighetene er satt opp korrekt.
 
 ---
 
 ## 🌸 **Kontaktinformasjon**
-Hvis du trenger hjelp eller du vil gi meg din mening om aplikasjonen, vennligst kontakt meg på **laurafabiola.s.a@gmail.com**.
+Hvis du trenger hjelp eller du vil gi meg din mening om aplikasjonen, vennligst kontakt meg på **luuariis@gmail.com**.
 
