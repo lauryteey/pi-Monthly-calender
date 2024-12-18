@@ -1,4 +1,4 @@
-# **Brukerveiledning for Kalenderapplikasjon (Beta version)** 
+# 📖 **Brukerveiledning for Kalenderapplikasjon (Beta version)** 
 
 ## **Introduksjon**
 Denne brukerveiledningen gjelder for **beta-versjonen** av kalenderapplikasjonen. Applikasjonen er under utvikling, og nye funksjoner vil bli lagt til i fremtidige versjoner. I denne versjonen kan brukeren:
@@ -130,14 +130,14 @@ For å teste applikasjonen, kan du oprette din egen bruker og deretter logge inn
 
 ---
 
-## **Kommende funksjoner**
+## ⌨️ **Kommende funksjoner**
 - **Påminnelser:** E-postpåminnelser vil bli sendt 1 time eller 10 minutter før en hendelse.
 - **Redigere og slette eventer:** Brukere vil kunne oppdatere eller fjerne eksisterende hendelser.
 - **Logge seg ut:** Brukere kan logge seg in og ut når som helst.
 
 ---
 
-## **Vanlige problemer og løsninger**
+## 🔍 **Vanlige problemer og løsninger**
 
 ### Problem: Får ikke logget inn.
 - **Løsning**: Sørg for at e-postadressen og passordet er riktig. Hvis problemet vedvarer, kontakt administrator.
@@ -150,6 +150,6 @@ For å teste applikasjonen, kan du oprette din egen bruker og deretter logge inn
 
 ---
 
-## **Kontaktinformasjon**
+## 🌸 **Kontaktinformasjon**
 Hvis du trenger hjelp eller du vil gi meg din mening om aplikasjonen, vennligst kontakt meg på **laurafabiola.s.a@gmail.com**.
 
