@@ -12,6 +12,18 @@ Hensikten med applikasjonen er å gi brukeren som for eksempel programmerere som
 
 ---
 
+## **Se applikasjonen**
+
+Hvis du ønsker å teste kalenderen uten å se på databasen og koden, kan du gjøre det ved å gå til 
+````bash
+http://10.2.4.56
+````
+og bare fortsett å følge veiledningen [Hvordan bruke applikasjonen](#hvordan-bruke-applikasjonen) 
+
+Hvis du derimot ønsker å se både applikasjonen, koden og databasen, kan du fortsette å lese veiledningen for viktige installasjoner og oppsetninger.
+
+---
+
 ## **Hva trenger du?**
 
 For å bruke applikasjonen må du ha følgende på plass:
@@ -29,7 +41,7 @@ For å bruke applikasjonen må du ha følgende på plass:
    - Applikasjonen ligger på GitHub, klon den til datamaskinen din med:
 
      ```bash
-     git clone https://github.com/lauryteey/Monthly-calender
+     git clone https://github.com/lauryteey/pi-Monthly-calender.git
      ```
    - Eller last ned ZIP-filen og pakk den ut.
 
@@ -84,19 +96,20 @@ pip install Flask
 ## **Hvordan bruke applikasjonen**
 
 ### **1. Logge inn eller registrere deg inn**
-For å teste applikasjonen, kan du oprette din egen bruker og deretter logge inn.
-
-- Gå til innloggingssiden og legg til nødvendige informajson, for eksempel: 
+For å teste applikasjonen, kan du oprette din egen bruker og deretter logge inn. 
+- lag din eget bruker ved å legge til navn, fornavn, e-post og passord.
+- Klikk på **Registrer deg**, så går til log in siden.
+- I log in side legg til nødvendige informajson, for eksempel: 
 - **E-post:** `test_user@gmail.com`
 - **Passord:** `123`
 - Klikk på **Logg inn**.
-- Hvis du har skrevet riktig informasjon, vil du bli sendt til kalendersiden. Hvis ikke, vil en feilmelding vises.
+- Hvis du har skrevet riktig informasjon, vil du bli sendt til kalendersiden. Hvis ikke, vil en feilmelding vises **feil e-post eller passord**.
 
 ---
 ### **3. Vise kalenderen**
 - Etter at du logger inn, vil du se kalenderen.
 - Du kan se både forrige og fremtidige datoer.
-- Du kan se eventene du lager ved å klikke på **Vise eventer**
+- Du kan se hendelser du lager ved å klikke på **Vise eventer**
 
 ---
 
@@ -116,7 +129,7 @@ For å teste applikasjonen, kan du oprette din egen bruker og deretter logge inn
 ## **Funksjoner forklart**
 
 ### **a. Logg inn og registrer deg**
-- lar brukeren lage sin eget bruker 
+- lar brukeren lage sin eget bruker.
 - Bruker e-post og passord for å bekrefte hvem brukeren er og gir deg tilgang til calenderen.
 - Hvis brukeren finnes i databasen og passordet er riktig, får du tilgang til kalenderen.
 
@@ -129,11 +142,11 @@ For å teste applikasjonen, kan du oprette din egen bruker og deretter logge inn
 - Viser dagens dato, oppdateres daglig. 
 
 ### **d. Vise eventer**
-- Viser en liste over eventer som brukeren oppretter 
-- Lar deg legge til flere eventer 
+- Viser en liste over hendelser som brukeren oppretter. 
+- Lar deg legge til flere hendelser.
 
 ### **e. Påminnelser**
-- **(Kommende funksjon)**: Sender e-postpåminnelser 1 time eller 10 minutter før hendelsen starter.
+- **(Kommende funksjon)**: Sender e-postpåminnelser 1 time eller 10 minutter før hendelsen starter vi Gmail. 📧
 
 
 ---
@@ -141,15 +154,17 @@ For å teste applikasjonen, kan du oprette din egen bruker og deretter logge inn
 ## ⌨️ **Kommende funksjoner**
 - **Påminnelser:** E-postpåminnelser vil bli sendt 1 time eller 10 minutter før en hendelse.
 - **Redigere og slette eventer:** Brukere vil kunne oppdatere eller fjerne eksisterende hendelser.
-- **Logge seg ut:** Brukere kan logge seg in og ut når som helst.
+- **Logge seg ut:** Brukeren kan logge seg in og ut når som helst.
+- **Se til dager som har hendelser:** Brukeren kan se hvilken datoer har en hendelse med en en små varsling som vises over datoen. 
 
 ---
 
 ## 🔍 **Vanlige problemer og løsninger**
-
+---
 ### Problem: Får ikke logget inn.
-- **Løsning**: Sørg for at e-postadressen og passordet er riktig. Hvis problemet vedvarer, kontakt administrator.
-
+- **Løsning**: Sørg for at e-postadressen og passordet er riktig. Hvis problemet vedvarer, kan du prøve å lage en ny bruker. Hvis du har en konto med hendelser kan du ta kontakt med meg. 
+--- 
+#Hvis 
 ### Problem: Hendelser lagres ikke.
 - **Løsning**: Sjekk at databasen er riktig konfigurert og aktiv.
 
