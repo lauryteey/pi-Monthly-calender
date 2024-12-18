@@ -18,7 +18,7 @@ Hvis du ønsker å teste kalenderen uten å se på databasen og koden, kan du gj
 ````bash
 http://10.2.4.56
 ````
-og bare fortsett å følge veiledningen [Hvordan bruke applikasjonen](#hvordan-bruke-applikasjonen) 
+og bare fortsett å følge veiledningen 📍 [Hvordan bruke applikasjonen](#hvordan-bruke-applikasjonen) 
 
 Hvis du derimot ønsker å se både applikasjonen, koden og databasen, kan du fortsette å lese veiledningen for viktige installasjoner og oppsetninger.
 
