@@ -22,7 +22,7 @@
 
         if (response.ok) {
             alert("Brukeren ble opprettet!"); // Bekreftelse
-            window.location.href = "/"; // Omadresserer til innloggingssiden
+            window.location.href = "/"; // går til innloggingssiden
         } else {
             alert(result.error || "Kunne ikke opprette bruker."); // Feilmelding
         }

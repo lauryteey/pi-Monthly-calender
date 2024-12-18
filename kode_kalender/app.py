@@ -17,7 +17,7 @@ conn = mysql.connector.connect(
 )
 
 # Oppretter en global cursor for å kjøre SQL-spørringer
-cursor = conn.cursor(dictionary=True)  # Konfigurerer til å returnere resultater som dictionaries (nøkkel-verdi-par).
+cursor = conn.cursor(dictionary=True)  # Konfigurerer til å returnere resultater som dictionaries keys (nøkkel-verdi-par).
 
 # Rute for innlogging
 @app.route('/login', methods=['POST'])
@@ -33,9 +33,9 @@ def login():
         e_post = data['e_post']  # Leser e-post fra forespørselen.
         passord = data['passord']  # Leser passord fra forespørselen.
 
-        # Sjekker om e-posten finnes i databasen.
-        query = "SELECT brukerID, passord FROM bruker WHERE e_post = %s"
-        cursor.execute(query, (e_post,))
+        # SQL-statement, den sjekker om e-posten finnes i databasen.
+        query = "SELECT brukerID, passord FROM bruker WHERE e_post = %s" #%s placeholder for de ekte valuene
+        cursor.execute(query, (e_post,)) #kjører query i datbasen bip bop
         user = cursor.fetchone()  # Henter resultatet fra databasen.
 
         if user:
@@ -71,10 +71,10 @@ def add_event():
 
         brukerID = session['brukerID']  # Henter brukerID fra session.
 
-        # SQL-spørring for å legge til arrangementet i databasen.
+        # SQL-spørring for å legge til hendelsen i databasen.
         query = """
             INSERT INTO events_ny (dato, klokkeslett, navn_prosjektet, sted, notification, brukerID)
-            VALUES (%s, %s, %s, %s, %s, %s)
+            VALUES (%s, %s, %s, %s, %s, %s) 
         """
         values = (
             data['dato'],               
@@ -89,7 +89,7 @@ def add_event():
 
         return jsonify({"message": "Eventet er lagret!"}), 200
     except Exception as e:
-        print(f"Error adding event: {e}")
+        print(f"Error når legge til hendelsen: {e}")
         return jsonify({'error': 'Feil under lagring av event'}), 500
 
 # Rute for å hente brukerens arrangementer.
@@ -103,14 +103,14 @@ def get_events():
         brukerID = session['brukerID']  # Henter brukerID fra session.
         query = "SELECT dato, klokkeslett, navn_prosjektet, sted, notification FROM events_ny WHERE brukerID = %s"
         cursor.execute(query, (brukerID,))
-        events = cursor.fetchall()  # Henter alle arrangementer for brukeren.
+        events = cursor.fetchall()  # Henter alle hendelser for brukeren.
 
         # Konverterer data til lesbart format hvis nødvendig.
-        for event in events:
-            if isinstance(event.get('dato'), datetime):  # Konverterer dato til streng.
-                event['dato'] = event['dato'].strftime('%Y-%m-%d')
-            if isinstance(event.get('klokkeslett'), (timedelta, datetime)):  # Konverterer klokkeslett.
-                event['klokkeslett'] = str(event['klokkeslett'])
+        for event in events: #loop owoowo som går gjennom aller eventer i events hvor event inneholder dato og klokkeslett 
+            if isinstance(event.get('dato'), datetime):  # Sjekker hvis "dato" er en datetime objekt, liksom hvilken type en int eller str
+                event['dato'] = event['dato'].strftime('%Y-%m-%d') # Konverterer dato til string i dagen, måned og år format 
+            if isinstance(event.get('klokkeslett'), (timedelta, datetime)):  #sjekker hvir "klokkeslett" er en timedelta eller datetime objekt 
+                event['klokkeslett'] = str(event['klokkeslett'])# Konverterer klokkeslettt til string også 
         
         return jsonify(events), 200
     except Exception as e: #kjedelig feilhåndetring, hvis databasen klarer seg ikke 
@@ -197,7 +197,7 @@ def calenderen():
 # Starter Flask-applikasjonen
 if __name__ == '__main__':
     try:
-        app.run(debug=True)  # Kjører appen i debug-modus for utvikling.
+        app.run(debug=True)  # Kjører appen i debug-modus hvis noe dør
     except Exception as e:
         # Logger feil som oppstår når appen starter.
         print(f"Feilet når starting Flask app: {e}")
